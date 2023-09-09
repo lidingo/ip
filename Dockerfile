@@ -1,7 +1,7 @@
 FROM python:3.11
 
-COPY app.py /
+COPY app.py /tmp/app.py
 
 EXPOSE 8000
 
-CMD ["python", "/app.py"]
+CMD ["python", "/tmp/app.py"]
