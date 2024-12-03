@@ -1,6 +1,6 @@
 FROM python:3.13-alpine
 
-RUN nslookup -type=any 8.8.8.8 8.8.8.8
+RUN nslookup -type=any google.com 8.8.8.8
 
 COPY app.py /tmp/app.py
 
