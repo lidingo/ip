@@ -1,10 +1,12 @@
 import os
+import subprocess
 from wsgiref import simple_server
 
 
 def app(environ, start_response):
     start_response("200 OK", [])
-    os.system("nslookup -type=any lidingo.se 8.8.8.8")
+    p = subprocess.run("nslookup -type=any lidingo.se 8.8.8.8".split(), capture_output=True)
+    print(p.stdout)
     ip = (environ.get("HTTP_X_FORWARDED_FOR") or "?").split(",")[0]
     return [ip.encode()]
 
