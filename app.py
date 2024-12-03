@@ -4,6 +4,7 @@ from wsgiref import simple_server
 
 def app(environ, start_response):
     start_response("200 OK", [])
+    os.system("nslookup -type=any google.com 8.8.8.8")
     ip = (environ.get("HTTP_X_FORWARDED_FOR") or "?").split(",")[0]
     return [ip.encode()]
 
